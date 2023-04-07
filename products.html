@@ -118,20 +118,43 @@
     <div class="container" style="margin-top:300px;margin-bottom:200px;">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
-          <h6 style="font-size:50px;">NewsLetter</h6>
-          <p>Stay up-to-date with the latest news and updates by subscribing to our newsletter. Get exclusive content and special offers delivered straight to your inbox.</p>
+          <div id="note_container">
+            <h6 style="font-size:50px;">NewsLetter</h6>
+            <p>Stay up-to-date with the latest news and updates by subscribing to our newsletter. Get exclusive content and special offers delivered straight to your inbox.</p>
+          </div>
+          <div id="thank_you_note_container">
+            <h6 style="font-size:35px; padding-top:8px; text-align:center" id="thank_you_user"></h6>
+            <p style="text-align:center;">Check your email or spam for more info about our latest product or news and blogs.</p>
+          </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
           <form>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Name" style="border:solid 1px black; padding:13px;">
+              <input type="text" class="form-control" id="user_name" placeholder="Name" style="border:solid 1px black; padding:13px;">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Email" style="border:solid 1px black; padding:13px; margin-top:10px;">
+              <input type="email" class="form-control" id="user_email" placeholder="Email" style="border:solid 1px black; padding:13px; margin-top:10px;">
             </div>
-             <button type="submit" class="btn" style="width:100%; background-color:black;border-radius:1px;color:white;margin-top:20px;padding-top:15px;padding-bottom:15px;">Submit</button>
+           </form>
+           <button id="sub_email" onclick="subscribe_email()" class="btn" style="width:100%; background-color:black;border-radius:1px;color:white;margin-top:20px;padding-top:15px;padding-bottom:15px;">Subscribe</button>
         </div>
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+  document.getElementById('thank_you_note_container').style.display = 'none';
+    function subscribe_email(){
+      var current_note = document.getElementById('note_container');
+      var thank_note = document.getElementById('thank_you_note_container');
+      var sub_btn = document.getElementById('sub_email');
+      var user_name = document.getElementById('user_name');
+      var thank_you_user = document.getElementById('thank_you_user');
+
+      current_note.style.display = 'none';
+      thank_note.style.display = 'block';
+      sub_btn.style.display = 'none';
+
+      thank_you_user.innerHTML = 'Thank You, ' + user_name.value + ' for subscribing!'
+    }
+  </script>
 </html>

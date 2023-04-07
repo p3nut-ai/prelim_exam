@@ -7,6 +7,11 @@
   <!-- google fonts -->
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
+#login_btn:hover{
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
   </style>
   <body>
     <div style="
@@ -33,7 +38,8 @@
             featuring a curated collection <br> of classic works from renowned artists.</p>
             <br>
           <!-- index button -->
-          <a href="frameset.html" style="background-color:#E91F1F;
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color:#E91F1F;
                             margin-left:27%;
                             text-decoration:none;
                             color:white;
@@ -42,10 +48,95 @@
                             padding-top:10px;
                             padding-bottom:10px;
                             border-radius:5px;
+                            border:none;
                             font-family: 'Baskerville', serif;
-                            letter-spacing:1px;">Take a tour</a>
+                            letter-spacing:1px;">Take a tour
+          </button>
+
+          <!-- Modal -->
+          <div  class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:13%;">
+            <div class="modal-dialog">
+              <div class="modal-content" style="width: 802px;margin-left: -149px;">
+                <div class="modal-body" style="padding-top: 50px;
+                                               padding-bottom: 50px;
+                                               padding-left: 20px;
+                                               height: 411px;">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <h1 style="font-size: 69px;
+                                  color: black;
+                                  font-family: 'Baskerville', serif;
+                                  font-weight: 100;
+                                  text-align: center;
+                                  padding-top: 116px;">CLASSICA</h1>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12" style="padding-right:15px;">
+                      <h6 class="text-left" style="font-size:35px;
+                                                   font-weight: bold;
+                                                   padding-bottom:20px;">Welcome!</h6>
+                      <form>
+                        <div class="form-group">
+                          <input type="email" id="username" class="form-control" placeholder="Email" style="border:solid 1px black; padding:13px;">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" id="password" class="form-control" placeholder="Password" style="border:solid 1px black; padding:13px; margin-top:10px;">
+                        </div>
+                       </form>
+                       <div class="row">
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                           <h6 class="text-left">
+                             <a href="404.html" style="font-size: 12px;
+                                                text-decoration: none;
+                                                color: red;">
+                               <i>Forgot Password?</i>
+                             </a>
+                           </h6>
+                         </div>
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                           <h6 style="text-align:right">
+                             <a href="404.html" style="font-size: 12px;
+                                                text-align: right;
+                                                text-decoration: none;
+                                                color: black;">
+                               Create an account
+                             </a>
+                           </h6>
+                         </div>
+                       </div>
+                       <button id="login_btn" type="submit" class="btn" style="width:100%; background-color:black;border-radius:1px;color:white;margin-top:20px;padding-top:15px;padding-bottom:15px;">Login</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    // checking for login creds
+
+    var login_btn = document.getElementById('login_btn');
+
+    login_btn.addEventListener('click', func);
+
+    // simple function para i check yung value ng fields after ma click or mag submit ni user
+    function func() {
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
+
+      // check if match ba yung inputs sa constant or fixed value
+
+      // if tama yung creds
+      if (username.value == 'admin' && password.value == 'pasa_mona_ako_maam_pls') {
+        window.location.href="https://p3nut-ai.github.io/prelim_exam/frameset.html";
+      }
+      else {
+        window.alert('oops wrong email or password.');
+      }
+}
+
+  </script>
 </html>
